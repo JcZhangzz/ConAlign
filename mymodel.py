@@ -476,6 +476,8 @@ def train_and_eval(train_data, biased_val_data, unif_train_data, unif_val_data,
                 avg_user_norm = user_emb_norm / model.user_latent_unbiased.weight.shape[0]
                 avg_item_norm = item_emb_norm / model.item_latent_unbiased.weight.shape[0]
             
+            if is_kuairand:
+                current_alignment_weight += 0
             
             epoch_time = time.time() - epoch_start
             stage2_epoch_times.append(epoch_time)
